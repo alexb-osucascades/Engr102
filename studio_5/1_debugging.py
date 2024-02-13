@@ -21,7 +21,7 @@ def main():
     # You'll see the secret password in the Run and Debug section of the left side.
 
     # TODO: Copy and paste the secret password next to Answer
-    # Answer: 
+    # Answer: HEY YOU FOUND THE CODE
 
     # Remember you can move forward through code, but you can't move backwards
     # So, make sure your clicks are deliberate!!!
@@ -44,7 +44,7 @@ def main():
     # This code will run based on the current break point in the code.
     # If you typed it correctly, you should get the decrypted message!
     # TODO: Copy and paste the decrypted message
-    # Answer: 
+    # Answer: HEY YOU FOUND THE CODE
 
     # Stop the code and let's continue...
 
@@ -78,7 +78,7 @@ def main():
     # Try typing 7, and then stepping over. Looks like it's not a liar after all!
     # But wait, look carefully, there is also a global variable (Globals) called "final_answer"
     # TODO: Type the value of final_answer
-    # Answer: 
+    # Answer: YOU ARE DONE!
 
     
     # Now you're done! Move on to the errors.py studio.
@@ -924,4 +924,4 @@ if __name__ == "__main__":
     final_answer = "YOU ARE DONE!"
     main()
 
-final_answer = ""
+final_answer = "Step Step Steppity Step"
