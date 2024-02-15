@@ -10,21 +10,28 @@ student_1_major = "Computer Science"
 student_1_expected_graduation_year = "2026"
 
 student_2_id = 18582185
-student_2_name = "Jennie"
+student_2_first_name = "Jennie"
 student_2_last_name = "Kim"
 student_2_major = "Chemistry"
 student_2_expected_graduation_year = "2025"
 
 # TODO: Create a new student student_3 following the same format
 
-
-
+student_3_id = 19364930
+student_3_first_name = "Bobby"
+student_3_last_name = "Joe"
+student_3_major = "Computer Science"
+student_3_expected_graduation_year = "2047"
 
 
 # Discussion: What are some problems with this approach?
 
-
-
+# not scalable!!!!!!!!
+# not scalable!!!!!!!!
+# not scalable!!!!!!!!
+# not scalable!!!!!!!!
+# not scalable!!!!!!!!
+# not scalable!!!!!!!!
 
 
 
@@ -35,15 +42,27 @@ student_2_expected_graduation_year = "2025"
 # Basic structure of a class
 class Student:
     # TODO: Let's build this class!
-    def __init__(self):
-        pass
+    def __init__(self, id: int, first_name: str, last_name: str, major: str, grad_year: int):
+        self.id = id
+        self.first_name = first_name
+        self.last_name = last_name
+        self.major = major
+        self.grad_year = grad_year
 
+    def get_full_name(self):
+        return(f"{self.first_name} {self.last_name}")
+
+    @property
+    def get_last_four(self):
+        return(f"{self.id[-4:]}")
 
 
 # TODO: Let's recreate our 3 students as objects of our new class!
 
 
-
+student_1 = Student(123456789, "Daniel", "White", "Computer Science", 2026)
+student_2 = Student(112233445, "Jennie", "Kim", "Chemistry", 2025)
+student_3 = Student(111222334, "Bobby", "Joe", "Computer Science", 2047)
 
 
 
@@ -54,7 +73,7 @@ class Student:
 # TODO: Make the id private.
 # Test your code and ensure you cannot access student_1.__id (you should see an error)
     
-
+#print(student_1.__id)
 
 
 # This is good because it prevents users from modifying the id by accident.
@@ -78,11 +97,17 @@ class Student:
 # The class inherited from is known as the parent class
     
 # TODO: Create a child class called GradStudent which inherits from the Student class, with the additional property of "specialization"
-
+class GradStudent(Student):
+    def __init__(self, id, first_name, last_name, major, grad_year, specialization):
+        super().__init__(id, first_name, last_name, major, grad_year)
+        self.specialization = specialization
 
 # create a new student_4 which uses GradStudent instead.
 # this person's major is Computer Science and their Specialization is Artifical Intelligence
     
+student_4 = GradStudent(111222334, "Bobby", "Joe", "Computer Science", 2047, "Artificial intelligence")
+print("b4 st4")
+student_4.get_full_name()
 
 # OOP Property - Polymorphism
 # refers to methods/functions/operators with the same name that can be executed on many objects or classes.
