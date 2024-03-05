@@ -17,6 +17,12 @@ class Participant:
     # key - this is the group key (i.e. "Accounting, Banking & Finance" from industry)
     # average - this is the average salary
     # participant_count - this is how many total participants fit into this group
+        
+class AverageSalary:
+    def __init__(self, key, average, participantCount):
+        self.key = key
+        self.average = average
+        self.participantCount = participantCount
 
 def main():
 
@@ -28,11 +34,29 @@ def main():
     industry_groups = group_by_attribute(participants, "industry")
 
     average_salaries_by_industry = get_average_salary(industry_groups)
+
+    filtered_avg_sal_by_industry = []
+    for group in average_salaries_by_industry:
+        if group.participantCount >= 10:
+            filtered_avg_sal_by_industry.append(group)
+
+    sorted_filtered_average_sal_by_industry = sorted(filtered_avg_sal_by_industry, key = lambda x: x.average, reverse=True)
+
+
+    top_5_industries = []
+    for entry in sorted_filtered_average_sal_by_industry[:5]:
+        top_5_industries.append(entry.key)
+    print("Answer #2: ", top_5_industries)
     
     # TODO: print top 5 industries by salary. Only include industries with at least 10 participants
 
     # TODO: Use existing logic to solve questions 3,4,5
 
+    #average salary breakdown by age
+    age_groups = group_by_attribute(participants, "age")
+    average_salaries_by_age = get_average_salary(age_groups)
+    for group in average_salaries_by_age:
+        print(group.key, group.average)
     return
 
 
@@ -52,7 +76,7 @@ def get_average_salary(groups_list):
     for key, group in groups_list.items():
         avg = int(sum([x.salary for x in group]) / len(group))
         # TODO: With the AverageSalaries class we created, append in instance of AverageSalaries instead of just key, avg, len(group)
-        average_salaries.append((key, avg, len(group)))
+        average_salaries.append(AverageSalary(key, avg, len(group)))
 
     return average_salaries
 
